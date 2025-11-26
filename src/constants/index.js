@@ -27,9 +27,22 @@ export const experiences = [
     ],
   },
   {
+    title: 'Founding Software Engineer',
+    company_name: 'Go Dutch!',
+    date: 'Jan 2023 - Present',
+    points: [
+      'Led full project development lifecycle from concept to deployment, delivering complex projects on time.',
+      'Integrated APIs to enhance app functionality, improving user engagement and adapting to email marketing platform requirements.',
+      'Leveraged libraries and tools including React Navigation, Redux Toolkit, Axios, Expo, and Formik.',
+      'Integrated Google Places API to retrieve local restaurant information, enhancing app utility.',
+      'Designed and implemented a notification system using libraries like React Navigation and Redux.',
+      'Managed data efficiently with PostgreSQL, applying data management skills relevant to email marketing databases.',
+    ],
+  },
+  {
     title: 'Software / Client Solutions Engineer',
     company_name: 'Blindsheep Digital',
-    date: 'Jan 2024 - Present',
+    date: 'Jan 2024 - Jul 2025',
     points: [
       'Design, develop, and maintain responsive, user-friendly websites using WordPress, leveraging themes and custom plugins to meet client requirements and enhance user experience.',
       'Create and maintain custom WordPress templates using HTML to support various page layouts and ensure consistency across the site for a cohesive brand presentation.',
@@ -55,20 +68,6 @@ export const experiences = [
       'Developed and maintain comprehensive databases to support strategic decisions, demonstrating strong organizational and analytical skills.',
       'Streamlined administrative processes, improving efficiency in distribution operations.',
       'Coordinated complex schedules and manage communications across global time zones.',
-    ],
-  },
-
-  {
-    title: 'Founding Software Engineer',
-    company_name: 'Go Dutch!',
-    date: 'Jan 2023 - May 2024',
-    points: [
-      'Led full project development lifecycle from concept to deployment, delivering complex projects on time.',
-      'Integrated APIs to enhance app functionality, improving user engagement and adapting to email marketing platform requirements.',
-      'Leveraged libraries and tools including React Navigation, Redux Toolkit, Axios, Expo, and Formik.',
-      'Integrated Google Places API to retrieve local restaurant information, enhancing app utility.',
-      'Designed and implemented a notification system using libraries like React Navigation and Redux.',
-      'Managed data efficiently with PostgreSQL, applying data management skills relevant to email marketing databases.',
     ],
   },
   {
@@ -101,7 +100,7 @@ export const projects = [
     theme: 'btn-back-orange',
     name: 'Go Dutch!',
     description: `Go Dutch! is an interactive, collaborative dining bill-splitting, mobile application that streamlines the process of dividing restaurant expenses among friends. Go Dutch! seamlessly parses receipts, adds diners, and distributes costs effortlessly. The intuitive interface offers special features like birthday bill-sharing and payment notification requests. Elevate your dining experience and impress your friends with our professional-grade app!`,
-    link: 'https://theobreaux.com/godutchapp',
+    link: 'https://godutchmobile.com',
     gitHubLink: 'https://github.com/TheoBreaux/go-dutch-react-native',
   },
   {

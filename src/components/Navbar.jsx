@@ -1,11 +1,22 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import {useState, useMemo, memo} from 'react'
+import {NavLink} from 'react-router-dom'
 import Logo from '../assets/images/LOGO-removebg-preview.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const links = ['/about', '/projects', '/marketing', '/acting', '/contact']
+  // Memoize links to prevent recreation on every render
+  const links = useMemo(
+    () => [
+      {path: '/about', label: 'About', external: false},
+      {path: '/projects', label: 'Projects', external: false},
+      {path: '/marketing', label: 'Marketing', external: false},
+      {path: '/acting', label: 'Acting', external: false},
+      {path: '/contact', label: 'Contact', external: false},
+      {path: 'https://godutchmobile.com', label: 'Go Dutch!', external: true},
+    ],
+    []
+  )
 
   return (
     <header className="w-full bg-white shadow-md relative">
@@ -55,26 +66,43 @@ const Navbar = () => {
         {/* Navigation links */}
         <nav
           className={`
-    ${isOpen ? 'block' : 'hidden'}
-    sm:flex sm:items-center sm:gap-6 text-base font-medium
-    sm:static sm:bg-transparent sm:shadow-none
-    absolute top-full left-0 w-full bg-white shadow-md z-20
-  `}
+            ${isOpen ? 'block' : 'hidden'}
+            sm:flex sm:items-center sm:gap-4 md:gap-6 text-sm sm:text-base font-medium
+            sm:static sm:bg-transparent sm:shadow-none
+            absolute top-full left-0 w-full bg-white shadow-md z-20
+            py-2 sm:py-0
+          `}
         >
-          {links.map((path) => (
-            <NavLink
-              key={path}
-              to={path}
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) => `${isActive ? 'text-blue-500' : 'text-black'} block mt-4 sm:mt-0 hover:text-blue-400 transition px-4 py-2`}
-            >
-              {path.substring(1).charAt(0).toUpperCase() + path.substring(2)}
-            </NavLink>
-          ))}
+          {links.map((link) =>
+            link.external ? (
+              <a
+                key={link.path}
+                href={link.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="text-black block mt-3 sm:mt-0 hover:text-blue-400 transition px-4 py-2 sm:py-1"
+                aria-label={`${link.label} (opens in new tab)`}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={({isActive}) =>
+                  `${isActive ? 'text-blue-500' : 'text-black'} block mt-3 sm:mt-0 hover:text-blue-400 transition px-4 py-2 sm:py-1`
+                }
+              >
+                {link.label}
+              </NavLink>
+            )
+          )}
         </nav>
       </div>
     </header>
   )
 }
 
-export default Navbar
+export default memo(Navbar)

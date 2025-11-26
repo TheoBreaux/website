@@ -4,7 +4,6 @@ import Projects from './Projects';
 import Marketing from './Marketing';
 import Education from './Education';
 import Contact from './Contact';
-import GoDutch from './GoDutch';
 import Acting from './Acting';
 import omg1 from '../assets/images/OMG-1.jpg';
 import omg2 from '../assets/images/OMG-2.jpg';
@@ -29,7 +28,6 @@ export {
   Marketing,
   Education,
   Contact,
-  GoDutch,
   Acting,
 };
 
