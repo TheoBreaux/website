@@ -27,7 +27,7 @@ const Home = () => {
         {/* Call-to-Action Buttons */}
         <div className="flex space-x-4 pb-4">
           <NavLink
-            to="/projects"
+            to="/work"
             className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
           >
             View My Work

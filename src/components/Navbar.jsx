@@ -5,7 +5,7 @@ import Logo from '../assets/images/LOGO-removebg-preview.png'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const links = ['/about', '/projects', '/marketing', '/acting', '/contact']
+  const links = ['/about', '/work', '/marketing', '/acting', '/contact']
 
   return (
     <header className="w-full bg-white shadow-md relative">

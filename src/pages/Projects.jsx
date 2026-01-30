@@ -1,20 +1,17 @@
 import { Link, NavLink } from 'react-router-dom'
 import { projects } from '../constants'
 import CTA from '../components/CTA'
-import { FaGithub } from 'react-icons/fa'
 import { FaLink } from 'react-icons/fa'
 
 const Projects = () => {
   return (
     <section className="absolute top-40 left-0 right-0 px-4 sm:px-8 lg:px-20 mx-auto max-w-6xl overflow-x-hidden">
       <h1 className="head-text">
-        My <span className="blue-gradient_text font-semibold drop-shadow">Projects</span>
+        My <span className="blue-gradient_text font-semibold drop-shadow">Work</span>
       </h1>
       <div className="mt-1 flex flex-col flex-wrap gap-3 text-slate-500">
         <p>
-          Over the past few years, I have honed my skills in various technical disciplines. I am proficient in React.js, React Native, Redux, Node.js,
-          PostgreSQL, and crafting efficient solutions through RESTful APIs. What truly sets me apart is my diverse background spanning multiple
-          industries, which imbues me with a unique perspective to my work.
+        Over the past several years, I’ve sharpened my skills across a range of technical disciplines, with hands-on experience in React, React Native, Redux, Node.js, PostgreSQL, and building scalable RESTful APIs. What sets me apart is a diverse background across multiple industries, which allows me to approach problems with a practical, user-focused perspective and deliver thoughtful, efficient solutions.
         </p>
       </div>
       <div className="flex flex-col my-20 gap-16">
@@ -32,16 +29,6 @@ const Projects = () => {
 
               <div className="mt-1 flex items-center gap-2">
                 <div className="flex">
-                  <div className="flex items-center mr-2">
-                    <Link
-                      to={project.gitHubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600"
-                    >
-                      <FaGithub size={30} />
-                    </Link>
-                  </div>
                   <div className="flex items-center">
                     <Link
                       to={project.link}
