@@ -8,6 +8,8 @@ import {useEffect, useMemo} from 'react'
  * @param {string} options.type - Schema.org type (default: 'WebPage')
  * @param {Object} options.structuredData - Additional structured data
  * @param {string} options.canonical - Canonical URL
+ * @param {string} options.image - Open Graph image URL
+ * @param {string} options.imageAlt - Alt text for Open Graph image
  */
 export const useSEO = ({
   title,
@@ -15,6 +17,8 @@ export const useSEO = ({
   type = 'WebPage',
   structuredData = {},
   canonical,
+  image,
+  imageAlt = 'Theo Breaux - Mobile Developer, Actor, Podcaster',
 }) => {
   const pageTitle = useMemo(
     () => (title ? `${title} | Theo Breaux` : 'Theo Breaux | Mobile Developer, Actor, Podcaster'),
@@ -67,11 +71,20 @@ export const useSEO = ({
 
     // Update or create Open Graph tags
     const currentUrl = typeof window !== 'undefined' ? window.location.href : ''
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : ''
+    const ogImage = image || `${baseUrl}/src/assets/images/hero-image.png`
+    
     const ogTags = {
       'og:title': pageTitle,
       'og:description': metaDescription,
       'og:type': 'website',
       'og:url': currentUrl,
+      'og:image': ogImage,
+      'og:image:alt': imageAlt,
+      'og:image:width': '1200',
+      'og:image:height': '630',
+      'og:site_name': 'Theo Breaux',
+      'og:locale': 'en_US',
     }
 
     Object.entries(ogTags).forEach(([property, content]) => {
@@ -85,10 +98,15 @@ export const useSEO = ({
     })
 
     // Update or create Twitter Card tags
+    const twitterImage = image || `${baseUrl}/src/assets/images/hero-image.png`
     const twitterTags = {
       'twitter:card': 'summary_large_image',
       'twitter:title': pageTitle,
       'twitter:description': metaDescription,
+      'twitter:image': twitterImage,
+      'twitter:image:alt': imageAlt,
+      'twitter:creator': '@theobreaux',
+      'twitter:site': '@theobreaux',
     }
 
     Object.entries(twitterTags).forEach(([name, content]) => {
@@ -102,15 +120,14 @@ export const useSEO = ({
     })
 
     // Update canonical URL
-    if (canonical) {
-      let canonicalLink = document.querySelector('link[rel="canonical"]')
-      if (!canonicalLink) {
-        canonicalLink = document.createElement('link')
-        canonicalLink.setAttribute('rel', 'canonical')
-        document.head.appendChild(canonicalLink)
-      }
-      canonicalLink.setAttribute('href', canonical)
+    const canonicalUrl = canonical || currentUrl
+    let canonicalLink = document.querySelector('link[rel="canonical"]')
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link')
+      canonicalLink.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonicalLink)
     }
+    canonicalLink.setAttribute('href', canonicalUrl)
 
     // Remove existing structured data script if present
     const existingScript = document.querySelector(
@@ -130,6 +147,6 @@ export const useSEO = ({
     return () => {
       script.remove()
     }
-  }, [pageTitle, metaDescription, defaultStructuredData, canonical])
+  }, [pageTitle, metaDescription, defaultStructuredData, canonical, image, imageAlt])
 }
 

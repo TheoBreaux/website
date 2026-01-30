@@ -8,12 +8,9 @@ const Education = () => {
     description:
       'Theo Breaux\'s educational background including Lake Forest College, Meta Front-End Developer Certification, Per Scholas React Developer Certification, and Google Data Analytics Specialization.',
     type: 'AboutPage',
-    structuredData: {
-      about: {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'degree',
-      },
-    },
+    canonical: 'https://theobreaux.com/education',
+    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
+    imageAlt: 'Theo Breaux education and certifications',
   })
 
   return (

@@ -25,13 +25,16 @@ const Contact = () => {
     description:
       'Get in touch with Theo Breaux - Mobile Developer, Actor, and Podcaster. Send a message for collaboration opportunities, acting inquiries, or podcast appearances.',
     type: 'ContactPage',
+    canonical: 'https://theobreaux.com/contact',
+    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
+    imageAlt: 'Contact Theo Breaux - Mobile Developer, Actor, Podcaster',
     structuredData: {
       mainEntity: {
         '@type': 'Person',
         name: CONTACT_INFO.name,
         jobTitle: CONTACT_INFO.title.split(', '),
         email: CONTACT_INFO.email,
-        url: window.location.origin,
+        url: typeof window !== 'undefined' ? window.location.origin : '',
       },
     },
   })

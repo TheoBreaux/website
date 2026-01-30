@@ -9,13 +9,22 @@ const Home = () => {
     description:
       'Theo Breaux - Mobile Developer, Actor, and Podcaster. Building apps, telling stories, and taking the mic. View my portfolio, projects, and acting credits.',
     type: 'Person',
+    canonical: 'https://theobreaux.com/',
+    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
+    imageAlt: 'Theo Breaux professional headshot - Mobile Developer, Actor, Podcaster',
     structuredData: {
-      image: window.location.origin + '/src/assets/images/hero-image.png',
+      image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
       sameAs: [
         'https://www.instagram.com/theobreaux/',
         'https://www.facebook.com/BreauxTheo/',
         'https://youtube.com/@yourenotmytypebro',
       ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Los Angeles',
+        addressRegion: 'CA',
+        addressCountry: 'US',
+      },
     },
   })
 

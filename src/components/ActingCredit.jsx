@@ -38,10 +38,17 @@ const ActingCredit = ({ role }) => {
           <video
             controls
             autoPlay
+            muted
+            preload="metadata"
             width="100%"
             className="video-reel-player"
             src={role.clipName}
-          ></video>
+            aria-label={`${role.title} - ${role.role} video clip`}
+            itemProp="video"
+          >
+            <track kind="captions" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       )}
       <hr className="border-slate-150 mt-2" />

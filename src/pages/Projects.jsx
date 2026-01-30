@@ -6,10 +6,13 @@ import {useSEO} from '../hooks/useSEO'
 
 const Projects = () => {
   useSEO({
-    title: 'Projects',
+    title: 'Work',
     description:
-      'View Theo Breaux\'s portfolio of mobile and web applications built with React, React Native, Node.js, and PostgreSQL. Including Go Dutch!, NutriGoalTracker, and more.',
+      'View Theo Breaux\'s portfolio of mobile and web applications built with React, React Native, Node.js, and PostgreSQL. Including Go Dutch!, NutriGoalTracker, AthletesTogether, and more.',
     type: 'CollectionPage',
+    canonical: 'https://theobreaux.com/work',
+    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
+    imageAlt: 'Theo Breaux portfolio projects - Mobile and web applications',
     structuredData: {
       about: {
         '@type': 'ItemList',
@@ -18,6 +21,7 @@ const Projects = () => {
           position: index + 1,
           name: project.name,
           description: project.description,
+          url: project.link,
         })),
       },
     },
@@ -26,7 +30,7 @@ const Projects = () => {
   return (
     <section
       className="absolute top-20 sm:top-24 md:top-28 lg:top-32 xl:top-40 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 mx-auto max-w-6xl overflow-x-hidden pb-8 sm:pb-12"
-      aria-label="Projects page"
+      aria-label="Work page"
     >
       <header className="mb-4 sm:mb-6">
         <h1 className="head-text">

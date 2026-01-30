@@ -20,6 +20,9 @@ const Marketing = () => {
     description:
       'Theo Breaux\'s digital marketing portfolio featuring Klaviyo email campaigns, social media strategies, and marketing analytics for OMG Sportswear USA and Circuit Rave Gear.',
     type: 'PortfolioPage',
+    canonical: 'https://theobreaux.com/marketing',
+    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/omg-klaviyo-numbers.png' : '',
+    imageAlt: 'Theo Breaux digital marketing portfolio - Klaviyo email campaigns and social media analytics',
     structuredData: {
       about: {
         '@type': 'CreativeWork',
@@ -128,22 +131,28 @@ const Marketing = () => {
             <div className="w-full sm:w-1/2">
               <video
                 controls
+                preload="metadata"
                 width="100%"
                 className="video-reel-player cursor-pointer rounded-lg"
                 src={OMGVideo}
                 aria-label="OMG Sportswear marketing video"
+                itemProp="video"
               >
+                <track kind="captions" />
                 Your browser does not support the video tag.
               </video>
             </div>
             <div className="w-full sm:w-1/2">
               <video
                 controls
+                preload="metadata"
                 width="100%"
                 className="video-reel-player cursor-pointer rounded-lg"
                 src={DailyGiftyVideo}
                 aria-label="Daily Gifty marketing video"
+                itemProp="video"
               >
+                <track kind="captions" />
                 Your browser does not support the video tag.
               </video>
             </div>

@@ -21,6 +21,9 @@ const About = () => {
     description:
       'Learn about Theo Breaux - a Front-end Engineer based in Los Angeles with experience in React, React Native, JavaScript, and more. View my skills, work experience, and education.',
     type: 'AboutPage',
+    canonical: 'https://theobreaux.com/about',
+    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
+    imageAlt: 'Theo Breaux - Front-end Engineer and Mobile Developer',
   })
 
   const skills = [

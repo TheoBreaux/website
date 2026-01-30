@@ -18,6 +18,9 @@ const Acting = () => {
     description:
       'Theo Breaux acting portfolio featuring television credits (Shameless, 9-1-1, Code Black), film roles (Purple Hearts, Criminales), and theater performances. View headshots, reel, and representation.',
     type: 'ProfilePage',
+    canonical: 'https://theobreaux.com/acting',
+    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/headshot-center.jpg' : '',
+    imageAlt: 'Theo Breaux acting portfolio - Professional headshot and acting credits',
     structuredData: {
       about: {
         '@type': 'Person',
@@ -104,11 +107,15 @@ const Acting = () => {
           <video
             controls
             autoPlay
+            muted
+            preload="metadata"
             width="100%"
             className="video-reel-player rounded-lg shadow-lg max-w-full"
             src={Reel}
             aria-label="Theo Breaux acting reel"
+            itemProp="video"
           >
+            <track kind="captions" />
             Your browser does not support the video tag.
           </video>
         </div>
