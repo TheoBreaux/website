@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom'
 import {projects} from '../constants'
 import CTA from '../components/CTA'
-import {FaGithub} from 'react-icons/fa'
 import {FaLink} from 'react-icons/fa'
 import {useSEO} from '../hooks/useSEO'
 
@@ -58,19 +57,8 @@ const Projects = () => {
                 {project.description}
               </p>
 
-              <nav className="mt-3 sm:mt-4 flex items-center gap-3 sm:gap-4" aria-label={`${project.name} links`}>
-                {project.gitHubLink && (
-                  <Link
-                    to={project.gitHubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
-                    aria-label={`View ${project.name} on GitHub`}
-                  >
-                    <FaGithub size={24} className="sm:w-7 sm:h-7" />
-                  </Link>
-                )}
-                {project.link && (
+              {project.link && (
+                <nav className="mt-3 sm:mt-4 flex items-center gap-3 sm:gap-4" aria-label={`${project.name} links`}>
                   <Link
                     to={project.link}
                     target="_blank"
@@ -80,8 +68,8 @@ const Projects = () => {
                   >
                     <FaLink size={24} className="sm:w-7 sm:h-7" />
                   </Link>
-                )}
-              </nav>
+                </nav>
+              )}
             </div>
           </article>
         ))}
