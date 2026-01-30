@@ -1,203 +1,210 @@
-import { useState, useRef, Suspense } from 'react'
+import {useState, useCallback, useMemo} from 'react'
 import emailjs from '@emailjs/browser'
-import { Canvas } from '@react-three/fiber'
-import Fox from '../models/Fox'
-import Loader from '../components/Loader'
 import useAlert from '../hooks/useAlert'
 import Alert from '../components/Alert'
-import InstagramIcon from '../assets/icons/instagram-icon.svg'
-import FacebookIcon from '../assets/icons/facebook-icon.svg'
-import Resume from '../assets/icons/file-solid.svg'
+import {useSEO} from '../hooks/useSEO'
+
+// Constants
+const CONTACT_INFO = {
+  name: 'Theo Breaux',
+  email: 'theobreaux@gmail.com',
+  title: 'Mobile Developer, Actor, Podcaster',
+}
+
+const ALERT_TIMEOUT = 3000
+const INITIAL_FORM_STATE = {name: '', email: '', message: ''}
 
 const Contact = () => {
-  const formRef = useRef(null)
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState(INITIAL_FORM_STATE)
   const [isLoading, setIsLoading] = useState(false)
-  const [currentAnimation, setCurrentAnimation] = useState('idle')
+  const {alert, showAlert, hideAlert} = useAlert()
 
-  const { alert, showAlert, hideAlert } = useAlert()
+  // SEO optimization
+  useSEO({
+    title: 'Contact',
+    description:
+      'Get in touch with Theo Breaux - Mobile Developer, Actor, and Podcaster. Send a message for collaboration opportunities, acting inquiries, or podcast appearances.',
+    type: 'ContactPage',
+    structuredData: {
+      mainEntity: {
+        '@type': 'Person',
+        name: CONTACT_INFO.name,
+        jobTitle: CONTACT_INFO.title.split(', '),
+        email: CONTACT_INFO.email,
+        url: window.location.origin,
+      },
+    },
+  })
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+  // Memoize handleChange to prevent unnecessary re-renders
+  const handleChange = useCallback((e) => {
+    const {name, value} = e.target
+    setForm((prevForm) => ({...prevForm, [name]: value}))
+  }, [])
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setCurrentAnimation('hit')
+  // Reset form helper
+  const resetForm = useCallback(() => {
+    setForm(INITIAL_FORM_STATE)
+  }, [])
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: 'Theo Breaux',
-          from_email: form.email,
-          to_email: 'theobreaux@gmail.com',
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then((result) => {
-        console.log('Email sent:', result.text)
-        setIsLoading(false)
+  // Memoize handleSubmit to prevent unnecessary re-renders
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault()
+      setIsLoading(true)
+
+      try {
+        const result = await emailjs.send(
+          import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+          {
+            from_name: form.name,
+            to_name: CONTACT_INFO.name,
+            from_email: form.email,
+            to_email: CONTACT_INFO.email,
+            message: form.message,
+          },
+          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        )
+
+        if (import.meta.env.DEV) {
+          console.log('Email sent:', result.text)
+        }
         showAlert({
           show: true,
           text: 'Message sent successfully',
           type: 'success',
         })
+
         setTimeout(() => {
           hideAlert()
-          setCurrentAnimation('idle')
-          setForm({ name: '', email: '', message: '' })
-        }, 3000)
-      })
-      .catch((error) => {
-        console.error('Email error:', error)
-        setIsLoading(false)
-        setCurrentAnimation('idle')
+          resetForm()
+        }, ALERT_TIMEOUT)
+      } catch (error) {
+        if (import.meta.env.DEV) {
+          console.error('Email error:', error)
+        }
         showAlert({
           show: true,
-          text: 'I didnt send the message, try again later.',
+          text: "I didn't send the message, try again later.",
           type: 'danger',
         })
-      })
-  }
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [form, showAlert, hideAlert, resetForm]
+  )
 
-  const handleFocus = () => {
-    setCurrentAnimation('walk')
-  }
-
-  const handleBlur = () => {
-    setCurrentAnimation('idle')
-  }
+  // Form fields configuration
+  const formFields = useMemo(
+    () => [
+      {
+        id: 'contact-name',
+        name: 'name',
+        type: 'text',
+        label: 'Name',
+        placeholder: 'John',
+        value: form.name,
+        autoComplete: 'name',
+        ariaLabel: 'Your name',
+      },
+      {
+        id: 'contact-email',
+        name: 'email',
+        type: 'email',
+        label: 'Email',
+        placeholder: 'John@gmail.com',
+        value: form.email,
+        autoComplete: 'email',
+        ariaLabel: 'Your email address',
+      },
+      {
+        id: 'contact-message',
+        name: 'message',
+        type: 'textarea',
+        label: 'Your Message',
+        placeholder: 'Let me know how I can help you!',
+        value: form.message,
+        rows: 4,
+        ariaLabel: 'Your message',
+      },
+    ],
+    [form]
+  )
 
   return (
-    <section className="absolute top-40 left-0 right-0 px-4 sm:px-8 lg:px-20 mx-auto max-w-6xl overflow-x-hidden">
+    <section
+      className="absolute top-20 sm:top-24 md:top-28 lg:top-32 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 mx-auto max-w-6xl overflow-x-hidden pb-8 sm:pb-12"
+      aria-label="Contact form section"
+    >
       {alert.show && <Alert {...alert} />}
-      <div className="flex-1 min-w-[50%] flex flex-col">
-        <h1 className="head-text">Get in Touch</h1>
-        <div className="flex items-center space-x-2">
-          <a
-            href="https://www.instagram.com/theobreaux/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className="insta-icon"
-              src={InstagramIcon}
-              alt="Instagram Icon"
-            />
-          </a>
-          <a
-            href="https://www.facebook.com/BreauxTheo/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className="insta-icon"
-              src={FacebookIcon}
-              alt="facebook Icon"
-            />
-          </a>
-          <a
-            href="../../public/files/acting-resume.pdf"
-            download
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className="insta-icon"
-              src={Resume}
-              alt="file Icon"
-            />
-          </a>
-        </div>
+      <article className="flex-1 w-full max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto flex flex-col">
+        <header className="mb-4 sm:mb-6">
+          <h1 className="head-text mb-2 sm:mb-3">Get In Touch</h1>
+          <p className="mt-2 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
+            Have a project in mind, an acting opportunity, or want to collaborate? Send me a message and I'll get back to you as soon as possible.
+          </p>
+        </header>
 
         <form
-          className="w-full flex flex-col gap-7 mt-14"
+          className="w-full flex flex-col gap-5 sm:gap-6 md:gap-7 mt-2 sm:mt-4"
           onSubmit={handleSubmit}
-          ref={formRef}
+          aria-label="Contact form"
+          noValidate
         >
-          <label className="text-black-500 font-semibold">
-            Name
-            <input
-              type="text"
-              name="name"
-              className="input"
-              placeholder="John"
-              required
-              value={form.name}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
-          <label className="text-black-500 font-semibold">
-            Email
-            <input
-              type="email"
-              name="email"
-              className="input"
-              placeholder="John@gmail.com"
-              required
-              value={form.email}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
-          <label className="text-black-500 font-semibold">
-            Your Message
-            <textarea
-              name="message"
-              className="textarea"
-              placeholder="Let me know how I can help you!"
-              required
-              rows={4}
-              value={form.message}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
+          {formFields.map((field) => (
+            <div
+              key={field.id}
+              className="form-group w-full"
+            >
+              <label
+                htmlFor={field.id}
+                className="text-black-500 font-semibold block text-sm sm:text-base mb-1 sm:mb-2"
+              >
+                {field.label}
+              </label>
+              {field.type === 'textarea' ? (
+                <textarea
+                  id={field.id}
+                  name={field.name}
+                  className="textarea text-sm sm:text-base resize-y min-h-[100px] sm:min-h-[120px]"
+                  placeholder={field.placeholder}
+                  required
+                  rows={field.rows}
+                  value={field.value}
+                  onChange={handleChange}
+                  aria-required="true"
+                  aria-label={field.ariaLabel}
+                />
+              ) : (
+                <input
+                  id={field.id}
+                  type={field.type}
+                  name={field.name}
+                  className="input text-sm sm:text-base"
+                  placeholder={field.placeholder}
+                  required
+                  value={field.value}
+                  onChange={handleChange}
+                  aria-required="true"
+                  aria-label={field.ariaLabel}
+                  autoComplete={field.autoComplete}
+                />
+              )}
+            </div>
+          ))}
+
           <button
             type="submit"
             disabled={isLoading}
-            className="btn"
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            className="btn text-sm sm:text-base py-2.5 sm:py-3 px-6 sm:px-8 mt-2 sm:mt-4 transition-all duration-200 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label={isLoading ? 'Sending message' : 'Submit contact form'}
           >
             {isLoading ? 'Sending...' : 'Send Message'}
           </button>
         </form>
-      </div>
-
-      <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350]">
-        <Canvas
-          camera={{
-            position: [0, 0, 5],
-            fov: 75,
-            near: 0.1,
-            far: 1000,
-          }}
-        >
-          <directionalLight
-            intensity={2.5}
-            position={[0, 0, 1]}
-          />
-          <ambientLight intensity={0.5} />
-          <Suspense fallback={<Loader />}>
-            <Fox
-              position={[0.5, 0.35, 0]}
-              rotation={[12.6, -0.6, 0]}
-              scale={[0.5, 0.5, 0.5]}
-              currentAnimation={currentAnimation}
-            />
-          </Suspense>
-        </Canvas>
-      </div>
+      </article>
     </section>
   )
 }

@@ -7,7 +7,6 @@ import {
   Education,
   Contact,
   Marketing,
-  GoDutch,
   Acting,
 } from './pages';
 import ImagePage from './components/ImagePage';
@@ -36,10 +35,6 @@ const App = () => {
             <Route
               path="/marketing"
               element={<Marketing />}
-            />
-            <Route
-              path="/godutchapp"
-              element={<GoDutch />}
             />
             <Route
               path="/education"
