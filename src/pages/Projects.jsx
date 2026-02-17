@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom'
 import {projects} from '../constants'
 import CTA from '../components/CTA'
 import {FaLink} from 'react-icons/fa'
@@ -63,15 +62,15 @@ const Projects = () => {
 
               {project.link && (
                 <nav className="mt-3 sm:mt-4 flex items-center gap-3 sm:gap-4" aria-label={`${project.name} links`}>
-                  <Link
-                    to={project.link}
+                  <a
+                    href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
                     aria-label={`Visit ${project.name} website`}
                   >
                     <FaLink size={24} className="sm:w-7 sm:h-7" />
-                  </Link>
+                  </a>
                 </nav>
               )}
             </div>

@@ -1,0 +1,20 @@
+# Allow /split-master to be accessed from theobreaux.com (add this at the TOP)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Allow /split-master when coming from theobreaux.com
+  RewriteCond %{REQUEST_URI} ^/split-master(/|$|/.*) [NC]
+  RewriteCond %{HTTP_REFERER} ^https?://(www\.)?theobreaux\.com(/|$) [NC]
+  RewriteRule ^ - [L]
+  
+  # OR if you want /split-master accessible from anywhere, use this instead:
+  # RewriteCond %{REQUEST_URI} ^/split-master(/|$|/.*) [NC]
+  # RewriteRule ^ - [L]
+  
+  # Existing React Router rules below
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

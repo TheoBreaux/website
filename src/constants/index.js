@@ -97,7 +97,7 @@ export const experiences = [
 
 export const projects = [
   {
-    theme: 'btn-back-blue',
+    theme: 'btn-back-orange',
     name: 'AthletesTogether',
     description:
       'AthletesTogether is a cross-platform mobile application developed using React Native and Expo. I contributed to building core user flows, implementing seamless navigation, and integrating advanced animations and gesture interactions to create a smooth, high-quality user experience across iOS and Android.',
@@ -105,7 +105,7 @@ export const projects = [
     gitHubLink: '',
   },
   {
-    theme: 'btn-back-orange',
+    theme: 'btn-back-green',
     name: 'Go Dutch!',
     description: `Go Dutch! is an interactive, collaborative mobile application that simplifies splitting restaurant bills among groups. The app streamlines the entire process by parsing receipts, managing diners, and accurately distributing costs with minimal effort. Its intuitive interface supports features such as shared items, birthday bill coverage, and automated payment notifications, making group dining easier and more transparent.`,
     link: 'https://godutchmobile.com',
@@ -113,7 +113,7 @@ export const projects = [
   },
 
   {
-    theme: 'btn-back-purple',
+    theme: 'btn-back-red',
     name: 'By The Glass',
     description:
       'By The Glass is a consumer-facing mobile application that helps users confidently choose wine at bars and restaurants. The app enables producers to upload verified tasting information—including flavor notes, acidity, body, and style—so consumers can quickly understand what’s in the glass. Designed for in-the-moment decisions, it replaces ratings with clear, structured insights that make wine selection simple and approachable.',
@@ -121,7 +121,15 @@ export const projects = [
     gitHubLink: '',
   },
   {
-    theme: 'btn-back-green',
+    theme: 'btn-back-blue',
+    name: 'Split Master',
+    description:
+      'Split Master is the bill-splitting game that’s actually fun. Tap falling food, add the prices, and match the exact total. Dodge gift cards and distractors, nail the target for a JACKPOT—and get sharper at mental math without the homework.',
+    link: 'https://godutchmobile.com/split-master',
+    gitHubLink: '',
+  },
+  {
+    theme: 'btn-back-orange',
     name: 'NutriGoalTracker',
     description:
       'NutriGoalTracker is a web application that guides users through the process of calculating their ideal calorie and macronutrient intake, tailored to their fitness goals. The application offers an extensive API food database, enabling users to effortlessly search for and log their meals, while also tracking their remaining daily calorie allowance with precision, helping them stay on track with their fitness goals.',
