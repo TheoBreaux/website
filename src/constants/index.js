@@ -1,17 +1,3 @@
-import daysClip from '../videos/days-of-lives.mp4'
-import escapeTheNight from '../videos/escape-the-night.mp4'
-import popOff from '../videos/pop-off-clip.mp4'
-import criminales from '../videos/criminales.mp4'
-import tupac from '../videos/tupac.mp4'
-import shameless from '../videos/shameless.mp4'
-import codeBlack from '../videos/code-black.mp4'
-import nineOneOne from '../videos/nine-one-one.mp4'
-import virtuallyHeroes from '../videos/virtually-heroes.mp4'
-import beatHerHeart from '../videos/beat-her-heart.mp4'
-import lastLife from '../videos/last-life.mp4'
-import wandaSykes from '../videos/wanda-sykes.mp4'
-import boulevard from '../videos/boulevard.mp4'
-
 export const experiences = [
   {
     title: 'Mobile Application Developer',
@@ -183,22 +169,6 @@ export const education = [
   },
 ]
 
-export const videoClips = {
-  daysClip: daysClip,
-  escapeTheNight: escapeTheNight,
-  popOff: popOff,
-  criminales: criminales,
-  tupac: tupac,
-  shameless: shameless,
-  codeBlack: codeBlack,
-  nineOneOne: nineOneOne,
-  beatHerHeart: beatHerHeart,
-  virtuallyHeroes: virtuallyHeroes,
-  lastLife: lastLife,
-  wandaSykes: wandaSykes,
-  boulevard: boulevard,
-}
-
 export const televisionActingRoles = [
   {
     title: 'NCIS: Origins',
@@ -216,13 +186,13 @@ export const televisionActingRoles = [
     title: 'Shameless',
     role: 'Co-star',
     productionCompany: 'Showtime',
-    clipName: shameless,
+    clipName: '/shameless.mp4',
   },
   {
     title: '9-1-1',
     role: 'Co-star',
     productionCompany: 'FOX',
-    clipName: nineOneOne,
+    clipName: '/nine-one-one.mp4',
   },
   {
     title: 'Euphoria',
@@ -240,13 +210,13 @@ export const televisionActingRoles = [
     title: 'Escape The Night',
     role: 'Guest Star',
     productionCompany: 'YouTube Red',
-    clipName: escapeTheNight,
+    clipName: '/escape-the-night.mp4',
   },
   {
     title: 'Unsolved: Murders of Tupac/B.I.G. ',
     role: 'Co-star',
     productionCompany: 'USA Network',
-    clipName: tupac,
+    clipName: '/tupac.mp4',
   },
   {
     title: 'Brooklyn Nine-Nine',
@@ -258,13 +228,13 @@ export const televisionActingRoles = [
     title: 'Code Black',
     role: 'Recurring',
     productionCompany: 'CBS',
-    clipName: codeBlack,
+    clipName: '/code-black.mp4',
   },
   {
     title: 'Days of Our Lives',
     role: 'Co-star',
     productionCompany: 'Corday Prod.',
-    clipName: daysClip,
+    clipName: '/days-of-lives.mp4',
   },
   {
     title: 'Then What Happened?',
@@ -315,7 +285,7 @@ export const televisionActingRoles = [
     title: 'The Wanda Sykes Show',
     role: 'Co-Star',
     productionCompany: 'FOX',
-    clipName: wandaSykes,
+    clipName: '/wanda-sykes.mp4',
   },
   {
     title: 'Blood Relatives',
@@ -333,13 +303,13 @@ export const televisionActingRoles = [
     title: 'Last Life',
     role: 'Series Regular',
     productionCompany: 'Puma Squad Prod.',
-    clipName: lastLife,
+    clipName: '/last-life.mp4',
   },
   {
     title: 'Boulevard',
     role: 'Series Regular',
     productionCompany: 'London Prod.',
-    clipName: boulevard,
+    clipName: '/boulevard.mp4',
   },
 ]
 
@@ -348,7 +318,7 @@ export const filmActingRoles = [
     title: 'Pop-Off',
     role: 'Lead',
     productionCompany: 'Rance Collins',
-    clipName: popOff,
+    clipName: '/pop-off-clip.mp4',
   },
   {
     title: 'Purple Hearts',
@@ -360,7 +330,7 @@ export const filmActingRoles = [
     title: 'Criminales',
     role: 'Lead',
     productionCompany: 'Good Son Pic.',
-    clipName: criminales,
+    clipName: '/criminales.mp4',
   },
   {
     title: 'The Takeover',
@@ -372,7 +342,7 @@ export const filmActingRoles = [
     title: 'The Beat That Her Heart Skipped',
     role: 'Supporting ',
     productionCompany: 'Robb Ent.',
-    clipName: beatHerHeart,
+      clipName: '/beat-her-heart.mp4',
   },
   {
     title: 'Sammy-Gate',
@@ -384,7 +354,7 @@ export const filmActingRoles = [
     title: 'Virtually Heroes',
     role: 'Supporting',
     productionCompany: 'New Horizon Pic.',
-    clipName: virtuallyHeroes,
+    clipName: '/virtually-heroes.mp4',
   },
   {
     title: 'Date Night',

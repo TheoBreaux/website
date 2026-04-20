@@ -8,8 +8,6 @@ import OMGMobile2 from '../assets/images/omg-mobile-2.png'
 import OMGMobile3 from '../assets/images/omg-mobile-3.png'
 import Circuit1 from '../assets/images/circuit-mobile.png'
 import Circuit2 from '../assets/images/circuit-mobile-2.png'
-import OMGVideo from '../videos/omg-mobile-recording.mp4'
-import DailyGiftyVideo from '../videos/daily-gifty-recording.mp4'
 import {useSEO} from '../hooks/useSEO'
 
 const Marketing = () => {
@@ -92,69 +90,76 @@ const Marketing = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center p-3 sm:p-5 gap-2 sm:gap-4">
-          <div className="w-full sm:w-1/2 p-2 sm:p-5">
-            <img
-              src={Circuit2}
-              className="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-              alt="Circuit Rave Gear mobile marketing campaign 2"
-              loading="lazy"
-            />
-          </div>
-
-          <div className="w-full sm:w-1/2 p-2 sm:p-5">
-            <img
-              src={Circuit1}
-              className="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-              alt="Circuit Rave Gear mobile marketing campaign 1"
-              loading="lazy"
-            />
-          </div>
-
-          <div className="w-full sm:w-1/2 p-2 sm:p-5">
-            <img
-              src={OMGMobile1}
-              className="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-              alt="OMG Sportswear mobile marketing campaign 1"
-              loading="lazy"
-            />
-          </div>
-          <div className="w-full sm:w-1/2 p-2 sm:p-5">
-            <img
-              src={OMGMobile2}
-              className="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-              alt="OMG Sportswear mobile marketing campaign 2"
-              loading="lazy"
-            />
-          </div>
-          <div className="w-full flex flex-col sm:flex-row justify-between gap-4 p-3 sm:p-5 rounded-lg shadow-lg bg-white">
-            <div className="w-full sm:w-1/2">
-              <video
-                controls
-                preload="metadata"
-                width="100%"
-                className="video-reel-player cursor-pointer rounded-lg"
-                src={OMGVideo}
-                aria-label="OMG Sportswear marketing video"
-                itemProp="video"
-              >
-                <track kind="captions" />
-                Your browser does not support the video tag.
-              </video>
+        <div className="flex flex-col gap-3 sm:gap-5 p-3 sm:p-5">
+          <div className="grid w-full grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
+            <div className="min-w-0 p-1 sm:p-2">
+              <img
+                src={Circuit2}
+                className="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                alt="Circuit Rave Gear mobile marketing campaign 2"
+                loading="lazy"
+              />
             </div>
-            <div className="w-full sm:w-1/2">
-              <video
-                controls
-                preload="metadata"
-                width="100%"
-                className="video-reel-player cursor-pointer rounded-lg"
-                src={DailyGiftyVideo}
-                aria-label="Daily Gifty marketing video"
-                itemProp="video"
-              >
-                <track kind="captions" />
-                Your browser does not support the video tag.
-              </video>
+
+            <div className="min-w-0 p-1 sm:p-2">
+              <img
+                src={Circuit1}
+                className="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                alt="Circuit Rave Gear mobile marketing campaign 1"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="min-w-0 p-1 sm:p-2">
+              <img
+                src={OMGMobile1}
+                className="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                alt="OMG Sportswear mobile marketing campaign 1"
+                loading="lazy"
+              />
+            </div>
+            <div className="min-w-0 p-1 sm:p-2">
+              <img
+                src={OMGMobile2}
+                className="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                alt="OMG Sportswear mobile marketing campaign 2"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div className="grid w-full grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 p-3 sm:p-5 rounded-lg shadow-lg bg-white">
+            <div className="min-w-0">
+              <div className="relative w-full aspect-[9/16] overflow-hidden rounded-lg bg-black">
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="video-reel-player absolute inset-0 h-full w-full object-contain cursor-pointer"
+                  src="/omg-mobile-recording.mp4"
+                  aria-label="OMG Sportswear marketing video"
+                  itemProp="video"
+                >
+                  <track kind="captions" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div className="min-w-0">
+              <div className="relative w-full aspect-[9/16] overflow-hidden rounded-lg bg-black">
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="video-reel-player absolute inset-0 h-full w-full object-contain cursor-pointer"
+                  src="/daily-gifty-recording.mp4"
+                  aria-label="Daily Gifty marketing video"
+                  itemProp="video"
+                >
+                  <track kind="captions" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
         </div>
@@ -193,7 +198,7 @@ const Marketing = () => {
           </div>
         </div>
 
-        <div className="mt-4 sm:mt-5 flex flex-wrap rounded-lg shadow-lg bg-white gap-2 sm:gap-4">
+        <div className="mt-4 sm:mt-5 flex flex-wrap justify-center content-start rounded-lg shadow-lg bg-white gap-2 sm:gap-4 p-4 sm:p-6">
           {Object.keys(images).map((imageName) => (
             <div
               key={imageName}

@@ -1,5 +1,4 @@
 import Headshot1 from '../assets/images/headshot-center.jpg'
-import Reel from '../videos/theo-breaux-reel.mp4'
 import MZALOGO from '../assets/images/mza-logo.png'
 import ROBBLOGO from '../assets/images/robb-logo.png'
 import PodcastLogo from '../assets/images/ynmtb-logo.png'
@@ -111,7 +110,7 @@ const Acting = () => {
             preload="metadata"
             width="100%"
             className="video-reel-player rounded-lg shadow-lg max-w-full"
-            src={Reel}
+            src="/theo-breaux-reel.mp4"
             aria-label="Theo Breaux acting reel"
             itemProp="video"
           >
