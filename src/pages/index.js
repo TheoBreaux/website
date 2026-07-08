@@ -20,6 +20,8 @@ import Headshot3 from '../assets/images/body-theatrical.jpg';
 import Headshot4 from '../assets/images/cop-theatrical.jpg';
 import Headshot5 from '../assets/images/commercial-smile.jpg';
 import Headshot6 from '../assets/images/blue-smile.jpg';
+import InstaFbNumbers from '../assets/images/omg-insta-fb-numbers.png';
+import KlaviyoNumbers from '../assets/images/omg-klaviyo-numbers.png';
 
 export {
   About,
@@ -50,4 +52,9 @@ export const actorImages = {
   Headshot4,
   Headshot5,
   Headshot6,
+};
+
+export const featuredImages = {
+  InstaFbNumbers,
+  KlaviyoNumbers,
 };

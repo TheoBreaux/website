@@ -1,4 +1,5 @@
 import JavaScriptIcon from '../assets/icons/javascript.svg'
+import TypeScriptIcon from '../assets/icons/typescript.svg'
 import GitHubIcon from '../assets/icons/github.svg'
 import HtmlIcon from '../assets/icons/html.svg'
 import CssIcon from '../assets/icons/css.svg'
@@ -28,6 +29,7 @@ const About = () => {
 
   const skills = [
     {name: 'JavaScript', icon: JavaScriptIcon, alt: 'JavaScript icon'},
+    {name: 'TypeScript', icon: TypeScriptIcon, alt: 'TypeScript icon'},
     {name: 'HTML', icon: HtmlIcon, alt: 'HTML icon'},
     {name: 'CSS', icon: CssIcon, alt: 'CSS icon'},
     {name: 'Node.js', icon: NodeIcon, alt: 'Node.js icon'},
@@ -51,12 +53,21 @@ const About = () => {
         </h1>
         <div className="mt-2 sm:mt-3 flex flex-col gap-2 sm:gap-3 text-slate-500 text-sm sm:text-base">
           <p>
-            A Front-end Engineer based in Los Angeles, with a passion for crafting fun and creative user-friendly mobile and web applications.
+            A React Native Developer based in Los Angeles with 2+ years of experience building and shipping production iOS and Android applications
+            using Expo, Redux, and TypeScript. I've published 3 mobile applications across the Apple App Store and Google Play Store, delivering
+            features spanning subscriptions, media playback, API integrations, and complex mobile workflows.
+          </p>
+          <p>
+            I love owning features end-to-end—from concept and architecture through deployment and maintenance—with a strong focus on performance,
+            usability, and product impact.
           </p>
         </div>
       </header>
 
-      <section className="py-4 sm:py-5 flex flex-col" aria-label="Skills section">
+      <section
+        className="py-4 sm:py-5 flex flex-col"
+        aria-label="Skills section"
+      >
         <h2 className="subhead-text">
           My <span className="blue-gradient_text font-semibold drop-shadow">Skills</span>
         </h2>
@@ -92,8 +103,10 @@ const About = () => {
         </h2>
         <div className="flex flex-col gap-2 sm:gap-3 text-slate-500 text-sm sm:text-base">
           <p>
-            I bring a myriad of experience from multiple industries and a fresh perspective to front-end development. Please see how diverse my work
-            experience lends it self to being a well-rounded developer.
+            My career spans multiple industries, including software development, entrepreneurship, marketing, hospitality, and customer service. This
+            diverse background allows me to approach challenges from multiple perspectives, understand user needs, communicate effectively, and
+            develop solutions that balance business goals with exceptional user experiences. The result is products that are both technically sound
+            and user-centered.
           </p>
         </div>
         <div className="mt-4 sm:mt-5 flex flex-col mb-4 sm:mb-5">

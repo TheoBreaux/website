@@ -43,10 +43,10 @@ const Home = () => {
             Theo Breaux
           </h1>
           <p className="mt-2 text-base sm:text-lg md:text-xl text-black">
-            Mobile Developer · Actor · Podcaster
+            Mobile Application Developer · Actor
           </p>
           <p className="mt-1 text-xs sm:text-sm md:text-base text-gray-500 dark:text-gray-400">
-            Building Apps, Telling Stories, Taking the Mic
+            Building Apps, Telling Stories
           </p>
         </header>
 

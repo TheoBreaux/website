@@ -1,7 +1,4 @@
 import Headshot1 from '../assets/images/headshot-center.jpg'
-import MZALOGO from '../assets/images/mza-logo.png'
-import ROBBLOGO from '../assets/images/robb-logo.png'
-import PodcastLogo from '../assets/images/ynmtb-logo.png'
 import {actorImages} from '../pages/index.js'
 import {useNavigate} from 'react-router-dom'
 import {filmActingRoles, televisionActingRoles, theaterActingRoles} from '../constants'
@@ -44,62 +41,6 @@ const Acting = () => {
         alt="Theo Breaux professional headshot"
         loading="eager"
       />
-
-      <section
-        className="representation-container w-full max-w-5xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10 px-4 mt-4 sm:mt-6"
-        aria-label="Representation and podcast"
-      >
-        {/* Representative Info */}
-        <div className="representative w-64 sm:w-56 xs:w-48 flex-shrink-0">
-          <a
-            href="https://www.mza.agency/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="representative-logo-wrapper">
-              <img
-                src={MZALOGO}
-                alt="michael zanuck logo"
-                className="representative-logo w-full h-auto max-h-24 object-contain"
-              />
-            </div>
-          </a>
-        </div>
-
-        {/* Second Representative */}
-        <div className="representative w-64 sm:w-56 xs:w-48 flex-shrink-0">
-          <a
-            href="http://therobbcompany.com/home.html"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="representative-logo-wrapper">
-              <img
-                src={ROBBLOGO}
-                className="representative-logo w-full h-auto max-h-24 object-contain"
-                alt="robb company logo"
-              />
-            </div>
-          </a>
-        </div>
-
-        {/* Podcast Section */}
-        <div className="representative w-64 sm:w-56 xs:w-48 flex-shrink-0">
-          <a
-            href="https://youtube.com/@yourenotmytypebro"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={PodcastLogo}
-              alt="Theo Breaux Podcast Logo"
-              className="representative-logo w-full h-auto max-h-24 object-contain"
-            />
-          </a>
-
-          <div className="flex flex-col items-center sm:items-start"></div>
-        </div>
-      </section>
 
       <section className="mt-4 sm:mt-5 flex flex-col" aria-label="Acting reel">
         <div className="flex flex-col items-center justify-center">

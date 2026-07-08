@@ -1,13 +1,13 @@
 import {projects} from '../constants'
 import CTA from '../components/CTA'
-import {FaLink} from 'react-icons/fa'
+import ProjectCard from '../components/ProjectCard'
 import {useSEO} from '../hooks/useSEO'
 
 const Projects = () => {
   useSEO({
     title: 'Work',
     description:
-      'View Theo Breaux\'s portfolio of mobile and web applications built with React, React Native, Node.js, and PostgreSQL. Including Go Dutch!, NutriGoalTracker, AthletesTogether, and more.',
+      "View Theo Breaux's portfolio of mobile and web applications built with React, React Native, Node.js, and PostgreSQL. Including Go Dutch!, NutriGoalTracker, AthletesTogether, and more.",
     type: 'CollectionPage',
     canonical: 'https://theobreaux.com/work',
     image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
@@ -37,44 +37,19 @@ const Projects = () => {
         </h1>
         <div className="mt-2 sm:mt-3 flex flex-col flex-wrap gap-2 sm:gap-3 text-slate-500 text-sm sm:text-base">
           <p>
-            Over the past several years, I've sharpened my skills across a range of technical disciplines, with hands-on experience in React, React Native, Redux, Node.js, PostgreSQL, and building scalable RESTful APIs. What sets me apart is a diverse background across multiple industries, which allows me to approach problems with a practical, user-focused perspective and deliver thoughtful, efficient solutions.
+            Over the past several years, I’ve developed expertise across a range of technologies, with hands-on experience in React, React Native,
+            Redux, Node.js, PostgreSQL, and building scalable RESTful APIs. What sets me apart is my diverse professional background, which enables me
+            to approach challenges from multiple perspectives, maintain a strong focus on the user experience, and deliver thoughtful, efficient
+            solutions.
           </p>
         </div>
       </header>
-      <div className="flex flex-col my-12 sm:my-16 md:my-20 gap-10 sm:gap-12 md:gap-16">
+      <div className="flex flex-col mt-2 mb-8 sm:mt-3 sm:mb-12 md:mt-4 md:mb-16 gap-8 sm:gap-10 md:gap-12">
         {projects.map((project) => (
-          <article
-            className="w-full lg:flex-1"
+          <ProjectCard
             key={project.name}
-            itemScope
-            itemType="https://schema.org/SoftwareApplication"
-          >
-            <div className="block-container w-10 h-10 sm:w-12 sm:h-12">
-              <div className={`btn-back rounded-xl ${project.theme}`} />
-            </div>
-            <div className="mt-2 sm:mt-3 flex flex-col">
-              <h2 className="text-xl sm:text-2xl font-bold" itemProp="name">
-                {project.name}
-              </h2>
-              <p className="mt-2 text-sm sm:text-base text-slate-500" itemProp="description">
-                {project.description}
-              </p>
-
-              {project.link && (
-                <nav className="mt-3 sm:mt-4 flex items-center gap-3 sm:gap-4" aria-label={`${project.name} links`}>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
-                    aria-label={`Visit ${project.name} website`}
-                  >
-                    <FaLink size={24} className="sm:w-7 sm:h-7" />
-                  </a>
-                </nav>
-              )}
-            </div>
-          </article>
+            project={project}
+          />
         ))}
       </div>
 

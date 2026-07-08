@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { images } from '../pages/index.js';
-import { actorImages } from '../pages/index.js';
+import { actorImages, featuredImages } from '../pages/index.js';
 import { useSEO } from '../hooks/useSEO';
 
 const ImagePage = () => {
@@ -9,7 +9,8 @@ const ImagePage = () => {
   const navigate = useNavigate();
   const imageSrc = images[imageName];
   const actorImageSrc = actorImages[imageName];
-  const currentImage = imageSrc || actorImageSrc;
+  const featuredImageSrc = featuredImages[imageName];
+  const currentImage = imageSrc || actorImageSrc || featuredImageSrc;
   
   // Generate descriptive alt text
   const getAltText = () => {

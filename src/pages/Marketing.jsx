@@ -55,7 +55,7 @@ const Marketing = () => {
         </div>
       </header>
 
-      <div className="py-6 sm:py-8 md:py-10 flex flex-col">
+      <div className="pt-0 pb-6 sm:pb-8 md:pb-10 flex flex-col -mt-2 sm:-mt-3">
         <h2 className="subhead-text mb-4 sm:mb-6">
           Social <span className="blue-gradient_text font-semibold drop-shadow">Media</span> Campaigns
         </h2>
@@ -65,7 +65,7 @@ const Marketing = () => {
             src={InstaFbNumbers}
             alt="Social media campaign analytics for Instagram and Facebook"
             className="max-w-full h-auto rounded-lg shadow-md cursor-pointer"
-            onClick={() => handleImageClick(InstaFbNumbers)}
+            onClick={() => handleImageClick('InstaFbNumbers')}
             loading="lazy"
           />
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
@@ -77,7 +77,7 @@ const Marketing = () => {
               View
             </button>
             <a
-              href="../assets/images/omg-insta-fb-numbers.png"
+              href={InstaFbNumbers}
               target="_blank"
               download
               rel="noopener noreferrer"
@@ -185,7 +185,7 @@ const Marketing = () => {
               View
             </button>
             <a
-              href="../assets/images/omg-klaviyo-numbers.png"
+              href={KlaviyoNumbers}
               target="_blank"
               download
               rel="noopener noreferrer"
