@@ -138,7 +138,7 @@ const Contact = () => {
 
   return (
     <section
-      className="absolute top-20 sm:top-24 md:top-28 lg:top-32 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 mx-auto max-w-6xl overflow-x-hidden pb-8 sm:pb-12"
+      className="absolute top-24 sm:top-24 md:top-28 lg:top-32 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 mx-auto max-w-6xl overflow-x-hidden pb-8 sm:pb-12"
       aria-label="Contact form section"
     >
       {alert.show && <Alert {...alert} />}

@@ -44,7 +44,7 @@ const About = () => {
 
   return (
     <section
-      className="absolute top-20 sm:top-24 md:top-28 lg:top-32 xl:top-40 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 mx-auto max-w-6xl overflow-x-hidden pb-8 sm:pb-12"
+      className="absolute top-24 sm:top-24 md:top-28 lg:top-32 xl:top-40 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 mx-auto max-w-6xl overflow-x-hidden pb-8 sm:pb-12"
       aria-label="About page"
     >
       <header className="mb-4 sm:mb-6">
@@ -98,7 +98,7 @@ const About = () => {
         id="experience"
         aria-label="Work experience section"
       >
-        <h2 className="subhead-text mt-4 sm:mt-5">
+        <h2 className="subhead-text">
           Work <span className="blue-gradient_text font-semibold drop-shadow">Experience</span>
         </h2>
         <div className="flex flex-col gap-2 sm:gap-3 text-slate-500 text-sm sm:text-base">
