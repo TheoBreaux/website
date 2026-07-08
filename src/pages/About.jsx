@@ -20,11 +20,11 @@ const About = () => {
   useSEO({
     title: 'About',
     description:
-      'Learn about Theo Breaux - a Front-end Engineer based in Los Angeles with experience in React, React Native, JavaScript, and more. View my skills, work experience, and education.',
+      'Learn about Theo Breaux — a React Native mobile developer based in Los Angeles with experience in React, TypeScript, Node.js, and PostgreSQL. View my skills, work experience, and education.',
     type: 'AboutPage',
-    canonical: 'https://theobreaux.com/about',
-    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
-    imageAlt: 'Theo Breaux - Front-end Engineer and Mobile Developer',
+    canonical: 'https://www.theobreaux.com/about',
+    image: typeof window !== 'undefined' ? window.location.origin + '/hero-image.png' : '',
+    imageAlt: 'Theo Breaux - React Native Mobile Developer',
   })
 
   const skills = [

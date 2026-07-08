@@ -72,7 +72,7 @@ export const useSEO = ({
     // Update or create Open Graph tags
     const currentUrl = typeof window !== 'undefined' ? window.location.href : ''
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : ''
-    const ogImage = image || `${baseUrl}/src/assets/images/hero-image.png`
+    const ogImage = image || `${baseUrl}/hero-image.png`
     
     const ogTags = {
       'og:title': pageTitle,
@@ -98,7 +98,7 @@ export const useSEO = ({
     })
 
     // Update or create Twitter Card tags
-    const twitterImage = image || `${baseUrl}/src/assets/images/hero-image.png`
+    const twitterImage = image || `${baseUrl}/hero-image.png`
     const twitterTags = {
       'twitter:card': 'summary_large_image',
       'twitter:title': pageTitle,

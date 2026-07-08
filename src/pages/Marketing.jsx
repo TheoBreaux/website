@@ -18,8 +18,8 @@ const Marketing = () => {
     description:
       'Theo Breaux\'s digital marketing portfolio featuring Klaviyo email campaigns, social media strategies, and marketing analytics for OMG Sportswear USA and Circuit Rave Gear.',
     type: 'PortfolioPage',
-    canonical: 'https://theobreaux.com/marketing',
-    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/omg-klaviyo-numbers.png' : '',
+    canonical: 'https://www.theobreaux.com/marketing',
+    image: typeof window !== 'undefined' ? window.location.origin + '/og-marketing.png' : '',
     imageAlt: 'Theo Breaux digital marketing portfolio - Klaviyo email campaigns and social media analytics',
     structuredData: {
       about: {

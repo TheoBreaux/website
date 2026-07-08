@@ -7,13 +7,13 @@ const Home = () => {
   useSEO({
     title: 'Home',
     description:
-      'Theo Breaux - Mobile Developer, Actor, and Podcaster. Building apps, telling stories, and taking the mic. View my portfolio, projects, and acting credits.',
+      'Theo Breaux — React Native mobile developer, actor, and podcaster in Los Angeles. Building apps, telling stories, and taking the mic. Explore my projects and acting credits.',
     type: 'Person',
-    canonical: 'https://theobreaux.com/',
-    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
+    canonical: 'https://www.theobreaux.com/',
+    image: typeof window !== 'undefined' ? window.location.origin + '/hero-image.png' : '',
     imageAlt: 'Theo Breaux professional headshot - Mobile Developer, Actor, Podcaster',
     structuredData: {
-      image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
+      image: typeof window !== 'undefined' ? window.location.origin + '/hero-image.png' : '',
       sameAs: [
         'https://www.instagram.com/theobreaux/',
         'https://www.facebook.com/BreauxTheo/',

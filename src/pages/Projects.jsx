@@ -9,8 +9,8 @@ const Projects = () => {
     description:
       "View Theo Breaux's portfolio of mobile and web applications built with React, React Native, Node.js, and PostgreSQL. Including Go Dutch!, NutriGoalTracker, AthletesTogether, and more.",
     type: 'CollectionPage',
-    canonical: 'https://theobreaux.com/work',
-    image: typeof window !== 'undefined' ? window.location.origin + '/src/assets/images/hero-image.png' : '',
+    canonical: 'https://www.theobreaux.com/work',
+    image: typeof window !== 'undefined' ? window.location.origin + '/hero-image.png' : '',
     imageAlt: 'Theo Breaux portfolio projects - Mobile and web applications',
     structuredData: {
       about: {
